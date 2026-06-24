@@ -133,9 +133,9 @@
     <value>True</value>
   </metadata>
   <metadata name="prtDocumento.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>201, -3</value>
+    <value>196, 23</value>
   </metadata>
-  <metadata name="prtVentas.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>575, -5</value>
+  <metadata name="prtVentana.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>617, 26</value>
   </metadata>
 </root>

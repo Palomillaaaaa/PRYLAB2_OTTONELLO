@@ -42,8 +42,11 @@
             this.lblCant = new System.Windows.Forms.Label();
             this.lblDatos = new System.Windows.Forms.Label();
             this.lnkDatos = new System.Windows.Forms.LinkLabel();
-            this.prtDocumento = new System.Windows.Forms.PrintDialog();
-            this.prtVentas = new System.Windows.Forms.PrintDialog();
+            this.prtDocumento = new System.Drawing.Printing.PrintDocument(); // CORREGIDO
+            this.prtVentana = new System.Windows.Forms.PrintDialog();
+            this.btnImprimir = new System.Windows.Forms.Button();
+            this.btnExportar = new System.Windows.Forms.Button();
+            this.btnMostrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -114,6 +117,7 @@
             this.cmbRubro.Name = "cmbRubro";
             this.cmbRubro.Size = new System.Drawing.Size(190, 28);
             this.cmbRubro.TabIndex = 2;
+            this.cmbRubro.SelectedIndexChanged += new System.EventHandler(this.cmbRubro_SelectedIndexChanged);
             // 
             // lblCantidad
             // 
@@ -156,7 +160,7 @@
             // lblDatos
             // 
             this.lblDatos.AutoSize = true;
-            this.lblDatos.Location = new System.Drawing.Point(322, 433);
+            this.lblDatos.Location = new System.Drawing.Point(71, 299);
             this.lblDatos.Name = "lblDatos";
             this.lblDatos.Size = new System.Drawing.Size(195, 20);
             this.lblDatos.TabIndex = 10;
@@ -165,26 +169,60 @@
             // lnkDatos
             // 
             this.lnkDatos.AutoSize = true;
-            this.lnkDatos.Location = new System.Drawing.Point(361, 461);
+            this.lnkDatos.Location = new System.Drawing.Point(110, 327);
             this.lnkDatos.Name = "lnkDatos";
             this.lnkDatos.Size = new System.Drawing.Size(127, 20);
             this.lnkDatos.TabIndex = 11;
             this.lnkDatos.TabStop = true;
             this.lnkDatos.Text = "Más Información";
+            this.lnkDatos.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkDatos_LinkClicked);
             // 
             // prtDocumento
             // 
-            this.prtDocumento.UseEXDialog = true;
+            this.prtDocumento.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.prtDocumento_PrintPage); // CORREGIDO
             // 
-            // prtVentas
+            // prtVentana
             // 
-            this.prtVentas.UseEXDialog = true;
+            this.prtVentana.UseEXDialog = true;
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Location = new System.Drawing.Point(146, 455);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(136, 42);
+            this.btnImprimir.TabIndex = 12;
+            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            // 
+            // btnExportar
+            // 
+            this.btnExportar.Location = new System.Drawing.Point(362, 455);
+            this.btnExportar.Name = "btnExportar";
+            this.btnExportar.Size = new System.Drawing.Size(136, 42);
+            this.btnExportar.TabIndex = 13;
+            this.btnExportar.Text = "Exportar";
+            this.btnExportar.UseVisualStyleBackColor = true;
+            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
+            // 
+            // btnMostrar
+            // 
+            this.btnMostrar.Location = new System.Drawing.Point(578, 455);
+            this.btnMostrar.Name = "btnMostrar";
+            this.btnMostrar.Size = new System.Drawing.Size(136, 42);
+            this.btnMostrar.TabIndex = 14;
+            this.btnMostrar.Text = "Mostrar";
+            this.btnMostrar.UseVisualStyleBackColor = true;
+            this.btnMostrar.Click += new System.EventHandler(this.btnMostrar_Click);
             // 
             // frmConsultas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(863, 497);
+            this.ClientSize = new System.Drawing.Size(863, 569);
+            this.Controls.Add(this.btnMostrar);
+            this.Controls.Add(this.btnExportar);
+            this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.lnkDatos);
             this.Controls.Add(this.lblDatos);
             this.Controls.Add(this.lblTotal);
@@ -219,7 +257,10 @@
         private System.Windows.Forms.Label lblCant;
         private System.Windows.Forms.Label lblDatos;
         private System.Windows.Forms.LinkLabel lnkDatos;
-        private System.Windows.Forms.PrintDialog prtDocumento;
-        private System.Windows.Forms.PrintDialog prtVentas;
+        private System.Drawing.Printing.PrintDocument prtDocumento; 
+        private System.Windows.Forms.PrintDialog prtVentana;
+        private System.Windows.Forms.Button btnImprimir;
+        private System.Windows.Forms.Button btnExportar;
+        private System.Windows.Forms.Button btnMostrar;
     }
 }
